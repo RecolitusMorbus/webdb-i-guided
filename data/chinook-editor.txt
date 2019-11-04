@@ -1,0 +1,51 @@
+-- READ DATA // list all of our customers
+select * from customer;
+
+-- select columns from table
+select FirstName, LastName from customer;
+
+-- list of all the artists
+select * from artist;
+
+-- list of artist names organized alphabetically
+select Name from artist order by Name;
+
+-- list first ten artists organized ascending by name; research the limit keyword
+select * from artist order by Name limit 10;
+
+-- FILTERING ROWS // list all customers living in Oslo
+select * from customer
+where city = 'Prague'; -- always use single quotes for for strings and dates
+
+-- list invoices produced on or after March 1, 2009
+select * from invoice where InvoiceDate >= '2009-03-01' order by InvoiceDate;
+
+-- list invoices without billing states
+select * from invoice where BillingState is null;
+
+-- ADDING DATA // add a new genre for Merengue
+select * from genre order by Name;
+insert into Genre (Name) values ('Bachata');
+
+-- add yourself as an Artist into the Database
+select * from artist order by Name;
+insert into Artist (Name) values ('djNolster');
+
+-- wildcard search
+select * from artist where Name like 'djN%' order by Name;
+
+-- UPDATE DATA
+update Artist set Name = 'NOLAN'
+where ArtistId = '276';
+
+select * from artist
+where ArtistId = '276';
+
+-- REMOVE DATA
+delete from Artist
+where ArtistId = '276';
+
+select * from artist
+where ArtistId = '276';
+
+
